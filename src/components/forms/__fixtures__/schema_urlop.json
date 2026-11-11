@@ -1,0 +1,87 @@
+{
+  "title": "Wniosek o urlop",
+  "type": "object",
+  "required": ["typ_urlopu", "data_od", "data_do"],
+  "properties": {
+    "typ_urlopu": {
+      "title": "Typ urlopu",
+      "type": "string",
+      "enum": ["wypoczynkowy", "okazjonalny", "bezplatny"],
+      "enumNames": ["Wypoczynkowy", "Okazjonalny (1 dzień)", "Bezpłatny"],
+      "default": "wypoczynkowy"
+    },
+    "data_od": {
+      "title": "Od",
+      "type": "string",
+      "format": "date"
+    },
+    "data_do": {
+      "title": "Do",
+      "type": "string",
+      "format": "date"
+    },
+    "powod": {
+      "title": "Powód urlopu okazjonalnego",
+      "type": "string",
+      "maxLength": 200
+    },
+    "zastepstwo": {
+      "title": "Zastępstwo",
+      "type": "object",
+      "properties": {
+        "imie": {
+          "title": "Imię i nazwisko",
+          "type": "string"
+        },
+        "email": {
+          "title": "Email służbowy",
+          "type": "string",
+          "format": "email"
+        }
+      }
+    },
+    "czesciowy": {
+      "title": "Urlop w częściach (opcjonalnie)",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["od", "do"],
+        "properties": {
+          "od": {
+            "title": "Od",
+            "type": "string",
+            "format": "date"
+          },
+          "do": {
+            "title": "Do",
+            "type": "string",
+            "format": "date"
+          }
+        }
+      }
+    },
+    "uwagi": {
+      "title": "Uwagi dla kadrowych",
+      "type": "string"
+    },
+    "zaakceptowany": {
+      "title": "Decyzja przełożonego",
+      "type": "boolean"
+    },
+    "komentarz": {
+      "title": "Komentarz decyzji",
+      "type": "string"
+    }
+  },
+  "if": {
+    "properties": {
+      "typ_urlopu": {
+        "const": "okazjonalny"
+      }
+    },
+    "required": ["typ_urlopu"]
+  },
+  "then": {
+    "required": ["powod"]
+  }
+}

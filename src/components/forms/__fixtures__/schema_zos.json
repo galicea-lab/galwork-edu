@@ -1,0 +1,105 @@
+{
+  "type": "object",
+  "required": [],
+  "properties": {
+    "kierunek": {
+      "type": "string",
+      "enum": [
+        "IT",
+        "IwB"
+      ],
+      "title": "Kierunek"
+    },
+    "rok_akademicki": {
+      "type": "string",
+      "enum": [
+        "2022/2023",
+        "2021/2022"
+      ],
+      "title": "Rok akademicki"
+    },
+    "student": {
+      "type": "string",
+      "title": "Student(ka)"
+    },
+    "rok_studiow": {
+      "type": "number",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "title": "Rok studiów"
+    },
+    "semestr": {
+      "type": "number",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "title": "Semestr"
+    },
+    "semestr_studiow": {
+      "type": "string",
+      "enum": [
+        "letni",
+        "zimowy"
+      ],
+      "title": "Semestr studiów"
+    },
+    "poziom_studiow": {
+      "type": "string",
+      "enum": [
+        "pierwszy",
+        "drugi"
+      ],
+      "title": "Poziom studiów"
+    },
+    "tryb_studiow": {
+      "type": "string",
+      "enum": [
+        "stacjonarne",
+        "niestacjonarne"
+      ],
+      "title": "Tryb studiów"
+    },
+    "data_urodzenia": {
+      "type": "string",
+      "title": "Data urodzenia"
+    },
+    "numer_telefonu": {
+      "type": "string",
+      "title": "Numer telefonu"
+    },
+    "sekretariat": {
+      "type": "string",
+      "title": "Sekretariat"
+    },
+    "czy_potrzebujesz_wersji_papierowej": {
+      "type": "boolean",
+      "title": "Czy potrzebujesz wersji papierowej?"
+    },
+    "dane_os_ok": {
+      "type": "boolean",
+      "title": "Potwierdzam dane osobowe"
+    },
+    "dane_stud_ok": {
+      "type": "boolean",
+      "title": "Potwierdzam dane o studiach"
+    },
+    "cel": {
+      "type": "string",
+      "title": "Cel wydania"
+    }
+  },
+  "title": "Zaświadczenie o studiowaniu"
+}

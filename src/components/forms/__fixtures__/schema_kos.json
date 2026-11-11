@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "required": [],
+  "properties": {
+    "kierunek": {
+      "type": "string",
+      "enum": [
+        "IwB",
+        "PLG"
+      ],
+      "title": "Kierunek"
+    },
+    "rok_studiow": {
+      "type": "string",
+      "title": "Rok studiów"
+    },
+    "specjalnosc": {
+      "type": "string",
+      "title": "Specjalność"
+    },
+    "semestr": {
+      "type": "string",
+      "title": "Semestr"
+    },
+    "rok_akademicki": {
+      "type": "string",
+      "enum": [
+        "1"
+      ],
+      "title": "Rok akademicki"
+    },
+    "student_ka_": {
+      "type": "string",
+      "enum": [
+        "-- osoba --"
+      ],
+      "title": "student_ka_"
+    },
+    "punkty_ects": {
+      "type": "string",
+      "title": "Punkty ECTS"
+    },
+    "ktopodpisuje": {
+      "type": "string",
+      "enum": [
+        "a.kawecki@pwsw.eu"
+      ],
+      "title": "Kto podpisuje"
+    }
+  },
+  "title": "Karta obiegu świadectwa"
+}

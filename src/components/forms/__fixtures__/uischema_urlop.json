@@ -1,0 +1,48 @@
+{
+  "ui:order": [
+    "typ_urlopu",
+    "data_od",
+    "data_do",
+    "powod",
+    "zastepstwo",
+    "czesciowy",
+    "uwagi",
+    "zaakceptowany",
+    "komentarz"
+  ],
+  "typ_urlopu": {
+    "ui:placeholder": "Wybierz typ urlopu"
+  },
+  "powod": {
+    "ui:placeholder": "Wymagane przy urlopie okazjonalnym",
+    "ui:help": "Pole wymagane, gdy typ urlopu to 'okazjonalny'."
+  },
+  "zastepstwo": {
+    "ui:title": "Zastępstwo",
+    "ui:description": "Osoba przejmująca obowiązki w okresie nieobecności.",
+    "email": {
+      "ui:placeholder": "np. anna.nowak@example.pl"
+    }
+  },
+  "czesciowy": {
+    "ui:title": "Urlop w częściach",
+    "ui:addButtonText": "Dodaj część urlopu"
+  },
+  "uwagi": {
+    "ui:widget": "textarea",
+    "ui:options": {
+      "rows": 4
+    }
+  },
+  "zaakceptowany": {
+    "ui:options": {
+      "inline": true
+    }
+  },
+  "komentarz": {
+    "ui:placeholder": "Opcjonalny komentarz do decyzji"
+  },
+  "ui:submitButtonOptions": {
+    "norender": true
+  }
+}

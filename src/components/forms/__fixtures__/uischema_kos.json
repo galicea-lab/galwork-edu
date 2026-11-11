@@ -1,0 +1,21 @@
+{
+  "ui:order": [
+    "kierunek",
+    "rok_studiow",
+    "specjalnosc",
+    "semestr",
+    "rok_akademicki",
+    "student_ka_",
+    "punkty_ects",
+    "ktopodpisuje"
+  ],
+  "student_ka_": {
+    "ui:placeholder": "np. jan.kowalski@student.example.pl"
+  },
+  "rok_akademicki": {
+    "ui:readonly": true
+  },
+  "ktopodpisuje": {
+    "ui:placeholder": "Wybierz osobę podpisującą"
+  }
+}

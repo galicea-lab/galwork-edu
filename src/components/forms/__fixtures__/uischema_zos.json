@@ -1,0 +1,53 @@
+{
+  "ui:order": [
+    "student",
+    "data_urodzenia",
+    "numer_telefonu",
+    "dane_os_ok",
+    "kierunek",
+    "rok_akademicki",
+    "rok_studiow",
+    "semestr",
+    "semestr_studiow",
+    "poziom_studiow",
+    "tryb_studiow",
+    "dane_stud_ok",
+    "czy_potrzebujesz_wersji_papierowej",
+    "cel",
+    "sekretariat"
+  ],
+  "student": {
+    "ui:placeholder": "np. jan.kowalski@student.example.pl"
+  },
+  "data_urodzenia": {
+    "ui:widget": "date"
+  },
+  "numer_telefonu": {
+    "ui:placeholder": "+48 600 000 000"
+  },
+  "rok_akademicki": {
+    "ui:placeholder": "np. 2025/2026"
+  },
+  "cel": {
+    "ui:widget": "textarea",
+    "ui:placeholder": "Np. stypendium, praktyki, cel urzędowy..."
+  },
+  "sekretariat": {
+    "ui:readonly": true
+  },
+  "dane_os_ok": {
+    "ui:options": {
+      "inline": true
+    }
+  },
+  "dane_stud_ok": {
+    "ui:options": {
+      "inline": true
+    }
+  },
+  "czy_potrzebujesz_wersji_papierowej": {
+    "ui:options": {
+      "inline": true
+    }
+  }
+}

@@ -1,0 +1,23 @@
+# Whitelist plików eksportowanych do publicznego mirrora na GitHubie
+# (scripts/public-export.mjs, .forgejo/workflows/publish-mirror.yml).
+# Nowe pliki nie są publikowane, dopóki nie zostaną tu dodane.
+# Wzorce: * (jeden segment), ** (dowolna liczba segmentów), katalog/ (prefix).
+# Celowo pominięte: dev/, .forgejo/, pliki lokalne (.env*).
+
+.gitignore
+.public-paths
+README.md
+LICENSE
+package.json
+yarn.lock
+next.config.js
+next.d.ts
+declaration.d.ts
+postcss.config.js
+tailwind.config.js
+tsconfig.json
+eslint.config.mjs
+
+scripts/**
+public/**
+src/**
