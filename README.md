@@ -1,7 +1,14 @@
 Projekt: Galwork
+Aplikacja: Galwork-edu
+
 Zastosowanie: szkoły i uczelnie
 
-Portal studenta / nauczyciela / pracownika administracji uczelni
+Portal kandydata / studenta / nauczyciela / pracownika administracji uczelni
+
+wersja beta v0.1.2
+wymaga galwork-hub w wersji min. v0.1.2
+
+Dokumentacja: https://galwork.net
 
 ## Role i layout
 
