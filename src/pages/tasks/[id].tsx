@@ -11,6 +11,7 @@ import {
 } from '@/store/tasks';
 import {
   TaskDetail,
+  PrintActions,
   TaskClaimModal,
   TaskCompleteModal,
   LoadingSpinner,
@@ -86,6 +87,14 @@ export default function TaskDetailPage() {
           task={selectedTask}
           onClaimClick={() => setClaimModalOpen(true)}
           onCompleteClick={() => setCompleteModalOpen(true)}
+        />
+
+        {/* 2026-11-16: wydruk PDF z danych zadania (np. podanie studenta) - bez archiwizacji */}
+        <PrintActions
+          instanceId={selectedTask.process_instance_id}
+          taskId={selectedTask.id}
+          allowArchive={false}
+          title="Wydruk PDF"
         />
 
         {/* Claim Modal */}

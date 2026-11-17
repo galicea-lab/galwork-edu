@@ -5,6 +5,7 @@ export * from './tasks';
 export * from './comments';
 export * from './notifications';
 export * from './forms';
+export * from './prints';
 export * from './plan';
 export * from './oceny';
 export * from './moje-oceny';

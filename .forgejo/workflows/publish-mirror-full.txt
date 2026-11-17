@@ -1,0 +1,88 @@
+name: Weryfikacja i mirror GitHub
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mirror-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify-and-publish:
+    runs-on: docker
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      # 2026-11-06: projekt używa yarn (packageManager w package.json,
+      # yarn.lock w repozytorium); package-lock.json usunięto.
+      - name: Zależności
+        run: |
+          corepack enable
+          yarn install --frozen-lockfile
+
+      - name: Znaczniki AI (development)
+        if: ${{ !startsWith(github.ref, 'refs/tags/v') }}
+        run: yarn check:ai
+
+      - name: Znaczniki AI (wydanie)
+        if: ${{ startsWith(github.ref, 'refs/tags/v') }}
+        run: yarn check:ai:release
+
+      - name: Build
+        run: yarn build
+
+      - name: Eksport publiczny
+        if: ${{ startsWith(github.ref, 'refs/tags/v') }}
+        env:
+          PUBLIC_SOURCE_URL: ${{ github.server_url }}/${{ github.repository }}
+          PUBLIC_TAG: ${{ github.ref_name }}
+        run: >-
+          node scripts/public-export.mjs
+          --release --require-license
+          --out "$RUNNER_TEMP/public"
+          --source-url "$PUBLIC_SOURCE_URL"
+          --tag "$PUBLIC_TAG"
+
+      - name: Push mirrora
+        if: ${{ startsWith(github.ref, 'refs/tags/v') }}
+        env:
+          MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
+          MIRROR_REPO: galicea-lab/galwork-edu
+        run: |
+          set -euo pipefail
+          test -n "$MIRROR_TOKEN"
+          test -n "$MIRROR_REPO"
+          git clone --depth 1 \
+            "https://x-access-token:${MIRROR_TOKEN}@github.com/${MIRROR_REPO}.git" \
+            "$RUNNER_TEMP/mirror"
+          find "$RUNNER_TEMP/mirror" -mindepth 1 -maxdepth 1 \
+            ! -name .git -exec rm -rf {} +
+          cp -a "$RUNNER_TEMP/public/." "$RUNNER_TEMP/mirror/"
+          cd "$RUNNER_TEMP/mirror"
+          git config user.name "galicea-mirror"
+          git config user.email "mirror@galicea.org"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Brak zmian do publikacji."
+            exit 0
+          fi
+          # git commit -m "Release ${{ github.ref_name }} (source ${{ github.sha }})"
+          git commit -m "${{ github.ref_name }}"
+          git push origin HEAD:main

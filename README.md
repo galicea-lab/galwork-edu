@@ -5,8 +5,8 @@ Zastosowanie: szkoły i uczelnie
 
 Portal kandydata / studenta / nauczyciela / pracownika administracji uczelni
 
-wersja beta v0.1.2
-wymaga galwork-hub w wersji min. v0.1.2
+wersja beta v0.1.3
+wymaga galwork-hub w wersji min. v0.1.3
 
 Dokumentacja: https://galwork.net
 

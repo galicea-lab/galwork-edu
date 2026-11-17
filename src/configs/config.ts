@@ -25,7 +25,7 @@ const lista = (wartosc: string | undefined, domyslna: string): string[] =>
     .filter(Boolean);
 
 let CONFIG: Config = {
-  keycloak: process.env.NEXT_PUBLIC_KEYCLOAK_URL || 'https://login.e-talar.com/realms/rekrutacja',
+  keycloak: process.env.NEXT_PUBLIC_KEYCLOAK_URL || 'https://login.e-talar.com/realms/galwork',
   keycloak_client: process.env.NEXT_PUBLIC_KEYCLOAK_CLIENT || 'transmem',
   api_url: process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8086/v1/wf/',
   // 2026-11-10: osobna zmienna dla modułu edu - wcześniej oba klienty
